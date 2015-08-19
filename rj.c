@@ -3,18 +3,14 @@
 void	perso(void)
 {
   int	classe;
-  int rep;
 
   printf("---- CLASSE ----\n");
   printf("1.    BOT\n");
   printf("2.  Sangoku\n");
-  printf("3. Retour Menu");
+  printf("3. Retour Menu\n");
   printf("Plus d'info sur un combattant ? choisis le chiffre que tu veux.\n");
   scanf("%d", &classe);
-
-
   printf("\n");
-
   switch (classe)
     {
     case 1:
@@ -40,7 +36,7 @@ void	perso(void)
 	perso();
         break;
     case 3:
-        printf("Tien Voila le menu !");
+        printf("Tien Voila le menu !\n");
 	getchar();
         lemenu();
 	break;
@@ -56,14 +52,15 @@ void	lemenu(void)
 {
   int choix;
 
-  printf("    ••••• MENU ••••• ");
-  printf("1. Information Classes");
-  printf("2.     DUEL 1VS1");
+  printf("    ••••• MENU ••••• \n");
+  printf("1. Information Classes\n");
+  printf("2.     DUEL 1VS1\n");
+  scanf("%d", &choix);
 
   switch (choix)
     {
     case 1:
-      printf("Voici toute les information que je dispose !");
+      printf("Voici toute les information que je dispose !\n");
       getchar();
       perso();
       break;
@@ -83,18 +80,20 @@ void	explication(void)
   getchar();
   printf("Je sais pas quel genre de personne tu es ... mais ...\n");
   getchar();
-  printf("Mais tu vas devoir te définir en choisissant quel genre de combattant tu serais dans la vie réel...\n");
+  printf("Tu vas devoir te définir en choisissant quel genre de combattant tu serais dans la vie réel.\n");
   getchar();
   printf("BEN ouai on rigole pas dans ce jeu !\n");
   getchar();
   printf("Il faut savoir que chaque style est UNIQUE en son genre.\n");
   getchar();
-  printf("Maintenant laisse moi te présenter LES COMBATTANTS !\n");
-  perso();
+  printf("A partir de MAINTENANT tu es sur le point de non retour ...\n");
+  getchar();
+  printf("Tu vas etre dirigé vers le menu tout simplement *siflement au calme*\n");
 }
 
 int	main()
 {
   explication();
+  lemenu();
   return(0);
 }
