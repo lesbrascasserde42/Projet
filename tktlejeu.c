@@ -48,7 +48,149 @@ int comparaison(char *s1, char *s2)
     }
   return(0);
 }
-  
+
+void    combat_son_goku_vs_bot(void)
+{
+  char action[5];
+  int la;
+  int lc;
+  int vie1;
+  int vie2;
+  int t;
+  int k;
+  int a;
+
+  vie1 = 15;
+  vie2 = 15;
+  k = 0;
+  t = 0;
+
+  getchar();
+  printf("\n\n");
+  printf("          SON GOKU  VS  BOT\n\n\n");
+  getchar();
+  while (vie2 > 0)
+    {
+      if(t == 1)
+      {
+	if(vie2 <= 0 || vie1 <= 0)
+	  break;
+	printf("\n");
+	printf("\n");
+	printf("<%d PV restants / %d PV ennemis> Que voulez vous faire BOT: \n\n", vie2, vie1);
+	printf("1. LittleDown : 3 pts d'attaque.\n");
+	printf("2. Keylogger : X pts d'attaque(fallait te souvenir).\n");
+	printf("3. ShutDown : 4 pts d'attaque pour votre adversaire et 2 pts d'attaque dans ta face.\n");
+	scanf("%s", action);
+	if(comparaison(action, "1") == 0)
+	  {
+	    phrase("Vous avez décider de le faire lagger avec un LITTLE DOWN !\n\n");
+	    getchar();
+	    printf("SON GOKU recois 3 point de dégats\n");
+	    vie1 = vie1 - 3;
+	    t = 0;
+	    getchar();
+	  }
+	else if (comparaison(action, "2") == 0)
+	  {
+	    printf("Un Keylogger ! Ben ouai tu t'auto-baise.\n\n");
+	    getchar();
+	    printf("SON GOKU recois %d point de degats\n", k);
+	    vie1 = vie1 - k;
+	    t = 0;
+	    getchar();
+	  }
+	else if (comparaison(action , "3")  == 0)
+	  {
+	    printf("\nSHUT................DOWN !!\n\n");
+	    getchar();
+	    printf("SON GUKO recois 4 point de degats et BOT recois 2 points de degats\n");
+	    vie1 = vie1 - 4;
+	    vie2 = vie2 - 2;
+	    t = 0;
+	    getchar();
+	  }
+	else
+	  {
+	    t = 1;
+	    printf("\nHey mec ta pas attaqué ...\n");
+	  }
+      }
+      if(t == 0)
+	{
+	  if(vie1 <= 0 || vie2 <= 0)
+	    break;
+	  printf("\n");
+	  printf("\n");
+	  printf("<%d PV restants / %d PV ennemi> Que voulez vous faire SON GUKO:\n", vie1, vie2);
+	  printf("1. Kamehameha : 1 point de degat.\n");
+	  printf("2. ShogekiHa : 3 points de degat + 2 pv pour vous\n");
+	  printf("3. Super Genkidama : 5 points de degat a tout le monde.\n");
+	  scanf("%s", action);
+	  la = longueur(action);
+	  if(comparaison(action, "1") == 0)
+	    {
+	      printf("\nKAAAAAAAAAAAAAAAAAAA\n");
+	      printf("\n");
+	      printf("MEEEEEEEEEEEEEEEEEEEEEEE\n");
+	      printf("\n");
+	      printf("HHHHHHHHHHAAAAAAAAAAAAAAAAAAA\n");
+	      printf("\n");
+	      printf("MMMMMMMMMMEEEEEEEEEEEEEEEEEEEEEEEE\n");
+	      printf("\n");
+	      printf("HHHHHHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA !!!!!!!\n");
+	      printf("\n");
+	      getchar();
+	      printf("BOT recois 1 point de degat\n");
+	      vie2 = vie2 - 1;
+	      k = 1;
+	      t = 1;
+	      getchar();
+	    }
+	  else if(comparaison(action, "2") == 0)
+	    {
+	      printf(" |===== %85 chargement du ki... 100%. YAAAAAAAAAAAAAAAAAAAAAAh\n");
+	      getchar();
+	      printf("\n");
+	      printf("BOT recois 3 points de degat et SON GOKU gagne 2 points de PV\n", k);
+	      vie2 = vie2 - 3;
+	      vie1 += 2;
+	      k = 3;
+	      t = 1;
+	      getchar();
+	    }
+	  else if(comparaison(action, "3") == 0)
+	    {
+	      printf("TERRIENS PRETEZ MOI VOTRE FORCE !!!\n");
+	      getchar();
+	      printf("\n");
+	      printf("BOT recois 5 point de degat et SON GOKU recois 5 points de degat\n");
+	      vie2 = vie2 - 5;
+	      vie1 = vie1 - 5;
+	      k = 5;
+	      t = 1;
+	      getchar();
+	    }
+	  else
+	    {
+	      t = 0;
+	      printf("\nHey mec ta pas attaqué ...\n");
+	    }
+	}
+    }
+
+
+  printf(" -------- FIN DE PARTIE --------  \n");
+  printf(" ________________________________\n");
+  printf("|                                |\n");
+  printf("|%d Vie de SON GOKU               |\n", vie1);
+  printf("|%d vie de BOT                    |\n", vie2);
+  printf("|                                |\n");
+  printf("|________________________________|\n");
+  getchar();
+  menu();
+}
+
 void    combat_Bot_vs_Son_goku(void)
 {
   char action[5];
@@ -199,57 +341,28 @@ void    intro_duel(void)
 
   printf("Yo les duelistes , vous allez devoir choisir vos COMBATTANTS, j'espere que vous avez bien regarder leur attaques ...");
   printf("\n");
-  printf("JOUEURS 1 / JOEURS 2 faites votres choix :\n");
+  printf("JOUEURS 1 / JOUEURS 2 faites votres choix :\n");
   printf("• • • • • • • • •\n");
   printf("•               •\n");
   printf("• 1.    BOT     •\n");
   printf("• 2. SON GOKU   •\n");
   printf("• 3.  RETOUR    •\n");
   printf("•               •\n");
+  printf("• • • • • • • • •\n");
   scanf("%d", &cb1);
   if (cb1 == 12)
     combat_Bot_vs_Son_goku();
+  else if(cb1 == 21)
+    combat_son_goku_vs_bot();
+  else if (cb1 ==3)
+    menu();
+  else
+    {
+      printf("\nChoisissez des combattant\n\n");
+      getchar();
+      intro_duel();
+    }
 }
-  
-  
-  
-
- 
-
-/*void    intro_duel(void)
-{
-  int combatant;
-
-  printf("Salut a toi grand guerrier, te voici dans l'arene des Champions, seul les braves pourront y rester en vie. Fait ton choix parmis ces combats.\n\n\
-");
-
-  printf(" __________________________ \n");
-  printf("|1.    BOT vs SON GOKU     |\n");
-  printf("|2.      BUME vs BOT       |\n");
-  printf("|3.   SON GUKO vs BUME     |\n");
-  printf("|4.        RETOUR          |\n");
-  printf("|__________________________|\n");
-  scanf("%d", &combatant);
-  printf("\n");
-
-  switch(combatant)
-    {
-  case 1:
-        printf("Parfait que le match commence !!\n\n");
-        getchar();
-        combat_Bot_vs_Son_goku();
-        break;
-  case 4:
-    	menu();
-	break;
-  default:
-    {
-        printf("selectionne le 1er, il n'y a que ça\n\n");
-        intro_duel();
-        break;
-    }
-    }
-}*/
 
 void	presentation_perso(void)
 {
@@ -355,10 +468,11 @@ void	menu(void)
   printf("\n");
   printf("• • • • • • • • • • • • • •\n");
   printf("•                         •\n");
-  printf("•          MENU           •\n");
+  printf("•      MENU PRINCIPAL     •\n");
   printf("•                         •\n");
   printf("• 1. Informations Classes •\n");
   printf("• 2.   DUEL 1 VS 1        •\n");
+  printf("• 3.      EXIT            •\n");
   printf("•                         •\n");
   printf("• • • • • • • • • • • • • •\n");
   scanf("%d", &choix);
@@ -373,6 +487,12 @@ void	menu(void)
     case 2:
 	intro_duel();
 	break;
+    case 3:
+      break;
+    default:
+      printf("Hey garcon choisis un truc pour de vrai ...\n");
+      getchar();
+      menu();
     }
 }
 
